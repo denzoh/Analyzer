@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load bootstrap  %}
+{% block topcontent %}
+<div class="container" style="margin-top:10px;width: 450px;">
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+  <div class="card">
+        <div class="card-header">Student Login</div>
+          <div class="card-body">
+
+            <form method="post" action="{% url 'students:login' %}">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+
+            <input type="submit" value="login">
+            <input type="hidden" name="next" value="{{ next }}">
+            </form>
+            {# Assumes you setup the password_reset view in your URLconf #}
+            <p><a href="{% url 'students:password_reset' %}">Reset password?</a></p>
+            <p><a href="{% url 'students:register' %}">Register?</a></p>
+          </div>
+        </div>
+</div>
+
+
+{% endblock %}

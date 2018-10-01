@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,7 +12,7 @@
   </head>
   <body id="page-top" style="padding-top:60px;">
           <nav class="navbar navbar-expand-lg navbar-light bg-light p-1 fixed-top" id="mainNav">
-            <a class="navbar-brand" href="{% url 'home'%}">
+            <a class="navbar-brand" href="#">
             <img src="{% static 'images/letter1.png' %}" height = 40 width=40 style="padding-right:10px;" class="d-inline-block align-top" alt="">Analyzer</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -19,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link js-scroll-trigger" href="{% url 'home' %}">Home</a>
+                  <a class="nav-link js-scroll-trigger" href="{% url 'students:home' %}">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#services">Services</a>
@@ -28,28 +29,17 @@
                   <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'questions:view_questions' %}">Questions</a>
+                  <a class="nav-link" href="#">Questions</a>
                 </li>
               </ul>
             </div>
 
               <div class="collapse navbar-collapse">
                   <div class="navbar-nav ml-auto">
-                    {% block auth %}
 
-                    {% if user.is_authenticated %}
-                    <a href="#">Logout</a>
-                    <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
-                    <form id="logout" action="{% url 'students:logout' %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden"/>
-                    </form>
-                    {% else %}
                     <a class="nav-item nav-link" href="{% url 'students:login' %}">Login</a>
-                    <a class="nav-item nav-link" href="{%  url 'students:signup' %}">Signup</a>
-                    {% endif %}
+                    <a class="nav-item nav-link" href="{% url 'students:register' %}">Signup</a>
 
-                    {% endblock auth %}
                   </div>
                 </div>
             </div>
