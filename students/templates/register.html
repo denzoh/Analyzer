@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap  %}
+{% block topcontent %}
+        <div class="container align-items-center d-flex " style="margin-top:10px;width: 1000px;">
+          <div class="card" style="width:800px;">
+                <div class="card-header">Student Sign Up</div>
+                  <div class="card-body" style="width:750px;">
+              <form method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit">Sign up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+{% endblock %}
