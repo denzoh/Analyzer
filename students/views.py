@@ -1,4 +1,4 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import SignUpForm
@@ -24,3 +24,5 @@ def register(request):
     else:
         form = SignUpForm()
     return render(request, 'register.html', {'form': form})
+def logout_view(request):
+    logout(request)
