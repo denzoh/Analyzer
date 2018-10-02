@@ -57,12 +57,12 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#">Questions</a>
             <a href="#">Messages</a>
-            <a href="#">Sign Out</a>
+            <a href="{% url 'students:logout' %}">Sign Out</a>
 
           </div>
 
           <div id="main">
-            <h2>Welcome, {{user.username}}</h2>
+            <h2>Welcome {{user.username}},</h2>
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
           </div>
 

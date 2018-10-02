@@ -37,7 +37,6 @@
               <div class="collapse navbar-collapse">
                   <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
-                     Hi {{ user.username }}!
                     <a class="nav-item nav-link" href="{% url 'students:logout' %}">Logout</a>
                     {% else %}
                     <a class="nav-item nav-link" href="{% url 'students:login' %}">Login</a>
