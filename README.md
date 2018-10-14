@@ -1,2 +1,2 @@
 # Analyzer
-django refresher repo
+django refresher repo + naivebayes model
