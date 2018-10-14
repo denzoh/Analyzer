@@ -22,7 +22,7 @@
                           <!-- END SIDEBAR USER TITLE -->
                           <!-- SIDEBAR BUTTONS -->
                           <div class="profile-userbuttons">
-                            <button type="button" class="btn btn-success btn-sm">Follow</button>
+                            <!-- <button type="button" class="btn btn-success btn-sm">Follow</button> -->
                             <button type="button" class="btn btn-danger btn-sm">Message</button>
                           </div>
                           <!-- END SIDEBAR BUTTONS -->
@@ -57,7 +57,12 @@
                         </div>
                         <div class="col-md-9">
                               <div class="profile-content">
-                           Some user related content goes here...
+                                  <div class="card-header">
+                                      Courses Taken:
+                                  </div>
+                                  <ul>
+                                    <li>{{myuser.course_name}}</li>
+                                  </ul>
                               </div>
                         </div>
                         </div>
